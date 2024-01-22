@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+    <ion-img (click)="goToHome()" src="../../assets/imagenes/home.png"></ion-img>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+<swiper-container
+[loop]="true"
+[pagination]="true">
+  <swiper-slide *ngFor="let slide of slides">
+    <div class="contenedor">
+      <h1 [innerHTML]="slide.title"></h1>
+      <div class="contenedor-interior">
+        <div class="texto">
+          <p [innerHTML]= "slide.description"></p>
+        </div>
+        <div class="imagen">
+          <img src={{slide.image}}>
+        </div>
+      </div>
+    </div>  
+  </swiper-slide>
+</swiper-container>
+</ion-content>

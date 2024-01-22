@@ -1,0 +1,54 @@
+swiper-container{
+    width: 100%;
+    height: 100%;
+  }
+  swiper-slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slide-1 {
+    background-color: rgb(180, 26, 144);
+    font-size: 30px;
+  }
+  .slide-2 {
+    background-color: rgb(43, 144, 73);
+  }
+  .slide-3 {
+    background-color: rgb(14, 23, 137);
+  }
+  .slide-4 {
+    background-color: rgb(208, 213, 55);
+  }
+ ion-img{
+  width: 60px;
+ }
+ .contenedor{
+
+  width: 100%;
+  text-align: center;
+
+}
+.contenedor-interior{
+  padding-top: 10%;
+  display: inline-flex; 
+}
+ .contenedor:h1{
+  font-family: 'Times New Roman', Times, serif;
+  width: 100%;
+ }
+
+ .texto{
+  padding-top: 1%;
+  padding-left: 5%;
+  max-width: 40%;
+  align-content: center;
+ }
+
+ .imagen{
+  max-width: 50%;
+  padding: 5px;
+ }
+
