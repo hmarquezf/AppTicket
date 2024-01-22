@@ -22,12 +22,12 @@ export class IntroPage implements OnInit {
     },
     {
       title: "Compra Fácil y Segura",
-      description: "Explora eventos, elige tus boletos y realiza transacciones sin complicaciones. <strong>Tu seguridad es nuestra prioridad.</strong>",
+      description: "Explora eventos, elige tus boletos y realiza transacciones sin complicaciones.<br><strong>Tu seguridad es nuestra prioridad.</strong>",
       image: "../../assets/imagenes/slider3.svg"
     },
     {
       title: "Personaliza tu Experiencia",
-      description: "Adapta la aplicación a tus necesidades. Guarda eventos favoritos, recibe notificaciones sobre preventas y descuentos exclusivos. Personaliza tu experiencia al máximo.",
+      description: "Adapta la aplicación a tus necesidades. Guarda eventos favoritos, recibe notificaciones sobre preventas y descuentos exclusivos.<br> Personaliza tu experiencia al máximo.",
       image: "../../assets/imagenes/slider4.svg"
     },
     {
