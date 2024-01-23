@@ -17,17 +17,17 @@ export class IntroPage implements OnInit {
     },
     {
       title: "Explora Eventos Exclusivos",
-      description : "Navega por una amplia variedad de eventos: conciertos, deportes, teatro y más. Con nuestra aplicación, accede a eventos exclusivos que se adaptan a tus gustos y preferencias.",
+      description : "Navega por una amplia variedad de eventos: conciertos, deportes, teatro y más.<br>Con nuestra aplicación, accede a eventos exclusivos que se adaptan a tus gustos y preferencias.",
       image: "../../assets/imagenes/slider2.svg"
     },
     {
       title: "Compra Fácil y Segura",
-      description: "Explora eventos, elige tus boletos y realiza transacciones sin complicaciones.<br><strong>Tu seguridad es nuestra prioridad.</strong>",
+      description: "Explora eventos, elige tus boletos y realiza transacciones sin complicaciones.<br><br><strong>Tu seguridad es nuestra prioridad.!!!</strong>",
       image: "../../assets/imagenes/slider3.svg"
     },
     {
       title: "Personaliza tu Experiencia",
-      description: "Adapta la aplicación a tus necesidades. Guarda eventos favoritos, recibe notificaciones sobre preventas y descuentos exclusivos.<br> Personaliza tu experiencia al máximo.",
+      description: "Adapta la aplicación a tus necesidades. Guarda eventos favoritos, recibe notificaciones sobre preventas y descuentos exclusivos.<br><br><strong> Personaliza tu experiencia al máximo.</strong>",
       image: "../../assets/imagenes/slider4.svg"
     },
     {
