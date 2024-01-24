@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center ion-text-capitalize">login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-avatar class="avatar"> 
+      <img src="../../assets/imagenes/usuario.png" alt="logo" class="logo">
+    </ion-avatar>
+
+    <form [formGroup]="loginForm">
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input formControlName="email"></ion-input>
+      </ion-item>
+    </form>
+
+</ion-content>

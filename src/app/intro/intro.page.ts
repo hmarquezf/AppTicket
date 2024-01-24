@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage-angular';
   templateUrl: './intro.page.html',
   styleUrls: ['./intro.page.scss'],
 })
-export class IntroPage implements OnInit {
+export class IntroPage  {
 
   slides = [
     {
@@ -46,8 +46,9 @@ export class IntroPage implements OnInit {
     this.router.navigateByUrl('/home');
     this.storage.set('mostreElhome', true);
   }
-
-  ngOnInit() {
+  
+  async ionViewDidEnter(){
+    this.storage.set('mostreLaIntro', true);
   }
 
 }
