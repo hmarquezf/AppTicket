@@ -19,4 +19,10 @@ export class HomePage {
     this.storage.set('mostreLaIntro', true);
   }
 
+  goToLogin(){
+    console.log("go to login");
+    this.router.navigateByUrl('/login');
+    this.storage.set('mostreLogin', true);
+  }
+
 }

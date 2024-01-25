@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
     <ion-title class="ion-text-center ion-text-capitalize">login</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,13 +12,40 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
       <ion-item>
-        <ion-input label="Email" formControlName="email" type="email" labelPlacement="floating" placeholder="Email"></ion-input>
+        <ion-input 
+        label="Email" 
+        formControlName="email" 
+        type="email" 
+        labelPlacement="floating" 
+        placeholder="Email"
+        ></ion-input>
       </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.email">
+          <div *ngIf="
+          (loginForm.get('email')?.hasError(validation.type) && 
+          loginForm.get('email')?.dirty)
+          ">{{validation.message}}</div>
+        </ng-container>
+      </div>
       <ion-item>
-        <ion-input label="Contraseña" formControlName="password" type="password" placeholder="Contraseña" labelPlacement="floating"></ion-input>
+        <ion-input 
+        label="Contraseña" 
+        formControlName="password" 
+        type="password" 
+        placeholder="Contraseña" 
+        labelPlacement="floating"
+        ></ion-input>
       </ion-item>
-      <ion-button type="submit" [disabled]="!loginForm.valid">Ingresar</ion-button>
-      <ion-button type="reset">Cancelar</ion-button>
+      <div>
+        <ng-container *ngFor="let validation of validation_messages.password">
+          <div *ngIf="
+          (loginForm.get('password')?.hasError(validation.type) && 
+          loginForm.get('password')?.dirty) 
+          ">{{validation.message}}</div>
+        </ng-container>
+      </div>
+      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" expand="full" >Ingresar</ion-button>
     </form>
 
 </ion-content>
