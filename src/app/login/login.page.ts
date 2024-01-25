@@ -18,13 +18,23 @@ export class LoginPage implements OnInit {
           "^[a-zA-Z0-9_.+-]+@[a-z0-9-]+.[a-zA-Z0-9-.]+$"
         )
       ])
+    ),
+    password: new FormControl(
+      "",
+      Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(10)
+      ])
     )
-  })
-
-
+   })
   }
 
   ngOnInit() {
+  }
+
+  login(login_data: any){
+    console.log(login_data);
   }
 
 }
