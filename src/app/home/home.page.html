@@ -8,17 +8,18 @@
       <ion-list lines="none">
     <ion-item>
     <ion-avatar class="avatar"> 
-      <img src="../../assets/imagenes/usuario.png" alt="logo" class="logo" (click)="goToLogin()">Login
+      <img src="../../assets/imagenes/usuario.png" alt="logo" class="logo" (click)="goToLogin()">
+      Login
     </ion-avatar>
   </ion-item>
     <ion-item>
       <ion-icon name="home-outline" (click)="goToIntro()"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-icon name="radio-outline"></ion-icon>
+      <ion-icon name="radio-outline" (click)="goToIntro()"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-icon name="search"></ion-icon>  
+      <ion-icon name="search" (click)="goToIntro()"></ion-icon>  
     </ion-item>
   </ion-list>
   </ion-content>
