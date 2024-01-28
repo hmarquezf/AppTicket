@@ -1,3 +1,14 @@
+<div class="ion-page" id="main-content">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-button (click)="goToIntro()">Ver Intro</ion-button>
+    
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</div>
 <ion-menu side="end" contentId="main-content">
     <ion-header>
       <ion-toolbar>
@@ -24,13 +35,4 @@
   </ion-list>
   </ion-content>
   </ion-menu>
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-button (click)="goToIntro()">Ver Intro</ion-button>
-        <ion-buttons slot="end">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-  </div>
+  

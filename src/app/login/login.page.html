@@ -1,7 +1,8 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="home-outline" (click)="goToHome()"></ion-icon>
-    <ion-title class="ion-text-center ion-text-capitalize">login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="goToHome()">Regresar</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -20,32 +21,39 @@
         placeholder="Email"
         ></ion-input>
       </ion-item>
-      <div>
+      <div class="validaciones">
         <ng-container *ngFor="let validation of validation_messages.email">
           <div *ngIf="
           (loginForm.get('email')?.hasError(validation.type) && 
           loginForm.get('email')?.dirty)
-          ">{{validation.message}}</div>
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          {{validation.message}}</div>
         </ng-container>
       </div>
       <ion-item>
-        <ion-input 
+        <ion-input id="password"
         label="Contraseña" 
         formControlName="password" 
         type="password" 
         placeholder="Contraseña" 
         labelPlacement="floating"
+        maxlength="10"
         ></ion-input>
       </ion-item>
-      <div>
+      <div class="validaciones">
         <ng-container *ngFor="let validation of validation_messages.password">
           <div *ngIf="
           (loginForm.get('password')?.hasError(validation.type) && 
           loginForm.get('password')?.dirty) 
-          ">{{validation.message}}</div>
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          {{validation.message}}</div>
         </ng-container>
       </div>
-      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" expand="full" >Ingresar</ion-button>
+      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" expand="full" id="open-toast">Ingresar</ion-button>
     </form>
-
+    <div *ngIf="!loginPermiso">      
+        <ion-toast trigger="open-toast" message="{{loginMessage}}" [duration]="3000" icon="person-outline"></ion-toast>
+    </div>
 </ion-content>

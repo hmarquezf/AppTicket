@@ -1,8 +1,12 @@
-<ion-header [translucent]="true">
-    <ion-img (click)="goToHome()" src="../../assets/imagenes/home.png"></ion-img>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="goToHome()">Saltar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <ion-header collapse="condense">
   </ion-header>
 <swiper-container

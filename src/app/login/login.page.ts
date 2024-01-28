@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { AuthService } from '../services/auth.service';
+import { BooleanValueAccessor } from '@ionic/angular';
+//import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -25,9 +28,15 @@ export class LoginPage implements OnInit {
     ]
 
   }
-  constructor(private router: Router,
+  loginMessage: any;
+  loginPermiso: any;
+  
+  constructor(
+    private authService: AuthService,
+    private router: Router,
     private storage: Storage,
-    private formBuilder: FormBuilder){ 
+    private formBuilder: FormBuilder
+    ){ 
   this.loginForm = this.formBuilder.group({
     email: new FormControl(
       "",
@@ -61,8 +70,16 @@ export class LoginPage implements OnInit {
 
   login(login_data: any){
     console.log(login_data);
+    this.authService.loginUser(login_data).then(res =>{
+      console.log(res);
+      this.loginPermiso = true;
+      this.router.navigateByUrl('/home');
+    }).catch(error => {
+      this.loginMessage = error;
+      this.loginPermiso = false;
+    });
   }
 
-  
+
 
 }
