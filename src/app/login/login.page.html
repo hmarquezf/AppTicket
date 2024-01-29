@@ -51,8 +51,42 @@
           {{validation.message}}</div>
         </ng-container>
       </div>
-      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" expand="full" id="open-toast">Ingresar</ion-button>
+      <ion-button type="submit" [disabled]="!loginForm.valid" shape="round" color="success" expand="full" id="open-toast">Ingresar</ion-button>
     </form>
+    <div class="contenedor">
+      <div class="contenedor-recupera">
+        <ion-button shape="round" color="danger" id="recuperaPass">Recuperar Contraseña</ion-button>
+     <!--   <ion-modal trigger="recuperaPass" (willDismiss)="onWillDismiss($event)">
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-buttons slot="start">
+                  <ion-button (click)="cancel()">Cancel</ion-button>
+                </ion-buttons>
+                <ion-title>Hola</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content class="ion-padding">
+              <ion-item>
+                <ion-input
+                  label="Enter your name"
+                  labelPlacement="stacked"
+                  type="text"
+                  placeholder="Your name"
+                  [(ngModel)]="recuperaPass"
+                ></ion-input>
+              </ion-item>
+            </ion-content>
+          </ng-template>
+        </ion-modal>-->
+      </div>
+      <div class="contenedor-registro">
+        <ion-button shape="round" color="tertiary" (click)="goToRegister()">Crear Cuenta</ion-button>
+      </div>
+    </div>
     <div *ngIf="!loginPermiso">      
         <ion-toast trigger="open-toast" message="{{loginMessage}}" [duration]="3000" icon="person-outline"></ion-toast>
     </div>

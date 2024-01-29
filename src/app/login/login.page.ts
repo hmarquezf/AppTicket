@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../services/auth.service';
+import { IonModal, ModalController } from '@ionic/angular';
+import { OverlayEventDetail } from '@ionic/core/components';
 //import { NavController } from '@ionic/angular';
 
 @Component({
@@ -12,6 +14,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginPage implements OnInit {
 
+ // @ViewChild(IonModal) modal: IonModal;
+  
   loginForm: FormGroup;
   validation_messages = {
     email: [
@@ -27,10 +31,13 @@ export class LoginPage implements OnInit {
     ]
 
   }
+  recuperaPass: any;
+  recuperaMenssage= 'Se enviará un email para restablecer su contraseña';
   loginMessage: any;
   loginPermiso: any;
   
   constructor(
+    private modalCtrl: ModalController,
     private authService: AuthService,
     private router: Router,
     private storage: Storage,
@@ -64,6 +71,12 @@ export class LoginPage implements OnInit {
     this.storage.set('mostreElhome', true);
   }
 
+  goToRegister(){
+    console.log("go to Register");
+    this.router.navigateByUrl('/register');
+    this.storage.set('mostreElRegister', true);
+  }
+
   ngOnInit() {
   }
 
@@ -79,7 +92,5 @@ export class LoginPage implements OnInit {
       this.loginPermiso = false;
     });
   }
-
-
 
 }

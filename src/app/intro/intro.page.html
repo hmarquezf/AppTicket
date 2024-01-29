@@ -5,29 +5,26 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true" >
-  <ion-header collapse="condense">
-  </ion-header>
-<swiper-container
-[loop]="true"
-[pagination]="true"
-[autoplay]="{delay: 2500,
+  <swiper-container
+  [loop]="true"
+  [pagination]="true"
+  [autoplay]="{delay: 2500,
   disableOnInteraction: false}"
-[effect]="'flip'"
->
-  <swiper-slide *ngFor="let slide of slides; let i = index">
-    <div class="contenedor">
-      <h1>{{slide.title}}</h1>
-      <div class="contenedor-interior">
-        <div class="texto">
-          <p [innerHTML]= "slide.description"></p>
-        </div>
-        <div class="imagen">
-          <img src={{slide.image}}>
-        </div>
-      </div>
-    </div>  
-  </swiper-slide>
-</swiper-container>
+  [effect]="'flip'"
+  >
+    <swiper-slide *ngFor="let slide of slides; let i = index">
+      <div class="contenedor">
+        <h1>{{slide.title}}</h1>
+          <div class="contenedor-interior">
+            <div class="texto">
+              <p [innerHTML]= "slide.description"></p>
+            </div>
+            <div class="imagen">
+              <img src={{slide.image}}>
+            </div>
+          </div>
+      </div>  
+    </swiper-slide>
+  </swiper-container>
 </ion-content>

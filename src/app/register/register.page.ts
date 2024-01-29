@@ -97,10 +97,16 @@ export class RegisterPage implements OnInit {
    // this.authService.loginUser(register_data).then(res =>{
    //   console.log(res);
       this.storage.set('userLoggedIn', true);
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/login');
   //  }).catch(error => {
    //   this.registerMessage = error;
    // });
+  }
+
+  goToLogin(){
+    console.log("go to login");
+    this.router.navigateByUrl('/login');
+    this.storage.set('mostreLogin', true);
   }
 
 }
