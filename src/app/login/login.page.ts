@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../services/auth.service';
-import { BooleanValueAccessor } from '@ionic/angular';
 //import { NavController } from '@ionic/angular';
 
 @Component({
@@ -73,6 +72,7 @@ export class LoginPage implements OnInit {
     this.authService.loginUser(login_data).then(res =>{
       console.log(res);
       this.loginPermiso = true;
+      this.storage.set('userLoggedIn', true);
       this.router.navigateByUrl('/home');
     }).catch(error => {
       this.loginMessage = error;
