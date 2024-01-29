@@ -55,7 +55,11 @@
       labelPlacement="floating"
       [counter]="true"
       maxlength="10"
-      ></ion-input>
+      >
+      <ion-button fill="clear" slot="end" aria-label="Show/hide">
+        <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
     </ion-item>
     <!--<div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.password">
@@ -76,7 +80,11 @@
       labelPlacement="floating"
       [counter]="true"
       maxlength="10"
-      ></ion-input>
+      >
+      <ion-button fill="clear" slot="end" aria-label="Show/hide">
+        <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
     </ion-item>
       <!--<div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.password">
