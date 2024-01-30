@@ -119,8 +119,17 @@
 
     <div>
       <div class="button-crear">
-        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" id="open-toast">Crear</ion-button>
+        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" id="open-toast" (click)="setOpen(true)">Crear</ion-button>
       </div>
+      <ion-alert
+         [isOpen]="isAlertOpen"
+         header="Bienvenido"
+         subHeader="
+         Tu registro se ha completado satisfactoriamente."
+         message="Por favor, inicie sesión."
+         [buttons]="alertButtons"
+         (didDismiss)="setOpen(false)"
+></ion-alert>
     </div>
   </form>
 </ion-content>

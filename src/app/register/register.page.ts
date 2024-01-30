@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 //import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { NavController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +10,9 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  
+  isAlertOpen = false;
+  alertButtons = ['Aceptar'];
 
   validation_messages = {
     email: [
@@ -32,6 +35,7 @@ export class RegisterPage implements OnInit {
     ],
     name: [
       {type: "required", message: "Nombre es obligatorio"},
+      {type: "pattern", message: "El nombre ingresado es inválido"}
     ],
     last_name: [
       {type: "required", message: "Apellido es obligatorio"},
@@ -45,6 +49,7 @@ export class RegisterPage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private storage: Storage,
+    private alertController: AlertController,
     private formBuilder: FormBuilder
   ) { 
     this.registerForm = this.formBuilder.group({
@@ -72,7 +77,8 @@ export class RegisterPage implements OnInit {
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(10),
-          Validators.pattern("^[a-zA-Z0-9_.+-]+$")
+          Validators.pattern("^[a-zA-Z0-9_.+-]+$"),
+          
         ])
       ),
       Validators
@@ -80,13 +86,15 @@ export class RegisterPage implements OnInit {
       name: new FormControl(
         "",
         Validators.compose([
-          Validators.required
+          Validators.required,
+          Validators.pattern("^[a-zA-Z]+$")
         ])
       ),
       last_name: new FormControl(
         "",
         Validators.compose([
-          Validators.required
+          Validators.required,
+          Validators.pattern("^[a-zA-Z]+$")
         ])
       )
     })
@@ -97,7 +105,7 @@ export class RegisterPage implements OnInit {
 
   register(register_data: any){
     console.log(register_data);
-      this.storage.set('userCreatedIn', register_data);
+      this.storage.set('userCreatedIn', this.registerForm.value);
 
       this.navCtrl.navigateForward('/login');
   }
@@ -108,8 +116,8 @@ export class RegisterPage implements OnInit {
     this.storage.set('mostreLogin', true);
   }
 
-    alertRegister(){
-
-    }
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
 
 }
