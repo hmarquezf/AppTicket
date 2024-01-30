@@ -55,7 +55,7 @@
     </form>
     <div class="contenedor">
       <div class="contenedor-recupera">
-        <ion-button shape="round" color="danger" id="recuperaPass">Recuperar Contraseña</ion-button>
+        <ion-button shape="round" color="danger" expand="full" id="recuperaPass">Recuperar Contraseña</ion-button>
      <!--   <ion-modal trigger="recuperaPass" (willDismiss)="onWillDismiss($event)">
           <ng-template>
             <ion-header>
@@ -84,7 +84,7 @@
         </ion-modal>-->
       </div>
       <div class="contenedor-registro">
-        <ion-button shape="round" color="tertiary" (click)="goToRegister()">Crear Cuenta</ion-button>
+        <ion-button shape="round" expand="full" color="tertiary" (click)="goToRegister()">Crear Cuenta</ion-button>
       </div>
     </div>
     <div *ngIf="!loginPermiso">      

@@ -19,5 +19,15 @@ export class AuthService {
       }
     });
   }
-
+  
+  registerUser(credential: any){
+    return new Promise((accept, reject) =>{
+      if(
+        credential.email == ''){
+        accept('Registro Correcto');
+        }else{
+        reject('Usuario y/o Contraseña inválido');
+        }
+      });
+    }
 }

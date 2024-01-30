@@ -19,6 +19,16 @@
       placeholder="Nombre"
       ></ion-input>
     </ion-item>
+    <div class="validaciones">
+      <ng-container *ngFor="let validation of validation_messages.name">
+        <div *ngIf="
+        (registerForm.get('name')?.hasError(validation.type) && 
+        registerForm.get('name')?.dirty)
+        ">
+        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+        {{validation.message}}</div>
+      </ng-container>
+    </div>
       <ion-item>
         <ion-input 
         label="Apellido" 
@@ -27,6 +37,16 @@
         placeholder="Apellido"
         ></ion-input>
       </ion-item>
+      <div class="validaciones">
+        <ng-container *ngFor="let validation of validation_messages.last_name">
+          <div *ngIf="
+          (registerForm.get('last_name')?.hasError(validation.type) && 
+          registerForm.get('last_name')?.dirty)
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          {{validation.message}}</div>
+        </ng-container>
+      </div>
     <ion-item>
       <ion-input 
       label="Email" 
@@ -36,16 +56,16 @@
       placeholder="Email"
       ></ion-input>
     </ion-item>
-    <!--<div class="validaciones">
+    <div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.email">
         <div *ngIf="
-        (loginForm.get('email')?.hasError(validation.type) && 
-        loginForm.get('email')?.dirty)
+        (registerForm.get('email')?.hasError(validation.type) && 
+        registerForm.get('email')?.dirty)
         ">
         <ion-icon name="close-circle-outline" size="medium"></ion-icon>
         {{validation.message}}</div>
       </ng-container>
-    </div>-->
+    </div>
     <ion-item>
       <ion-input id="password"
       label="Contraseña" 
@@ -56,24 +76,21 @@
       [counter]="true"
       maxlength="10"
       >
-      <ion-button fill="clear" slot="end" aria-label="Show/hide">
-        <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
-      </ion-button>
     </ion-input>
     </ion-item>
-    <!--<div class="validaciones">
+    <div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.password">
         <div *ngIf="
-        (loginForm.get('password')?.hasError(validation.type) && 
-        loginForm.get('password')?.dirty) 
+        (registerForm.get('password')?.hasError(validation.type) && 
+        registerForm.get('password')?.dirty) 
         ">
         <ion-icon name="close-circle-outline" size="medium"></ion-icon>
         {{validation.message}}</div>
       </ng-container>
-    </div>-->
+    </div>
     <ion-item>
       <ion-input id="confirmaPassword"
-      label="Contraseña" 
+      label="Confirmar Contraseña" 
       formControlName="confirmaPassword" 
       type="password" 
       placeholder="Contraseña" 
@@ -81,21 +98,29 @@
       [counter]="true"
       maxlength="10"
       >
-      <ion-button fill="clear" slot="end" aria-label="Show/hide">
-        <ion-icon slot="icon-only" name="eye" aria-hidden="true"></ion-icon>
-      </ion-button>
     </ion-input>
     </ion-item>
-      <!--<div class="validaciones">
-      <ng-container *ngFor="let validation of validation_messages.password">
+      <div class="validaciones">
+      <ng-container *ngFor="let validation of validation_messages.confirmaPassword">
         <div *ngIf="
-        (loginForm.get('password')?.hasError(validation.type) && 
-        loginForm.get('password')?.dirty) 
+        (registerForm.get('confirmaPassword')?.hasError(validation.type) && 
+        registerForm.get('confirmaPassword')?.dirty) 
         ">
         <ion-icon name="close-circle-outline" size="medium"></ion-icon>
         {{validation.message}}</div>
       </ng-container>
-    </div>-->
-    <ion-button type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" id="open-toast">Crear</ion-button>
+    </div>
+   <div class="validaciones">
+      <div *ngIf="registerForm.get('password')?.value != '' && (registerForm.get('password')?.value != registerForm.get('confirmaPassword')?.value)">
+        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+
+    <div>
+      <div class="button-crear">
+        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" id="open-toast">Crear</ion-button>
+      </div>
+    </div>
   </form>
 </ion-content>
