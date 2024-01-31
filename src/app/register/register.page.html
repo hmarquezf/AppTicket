@@ -81,55 +81,58 @@
     <div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.password">
         <div *ngIf="
-        (registerForm.get('password')?.hasError(validation.type) && 
-        registerForm.get('password')?.dirty) 
-        ">
-        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
-        {{validation.message}}</div>
+          (registerForm.get('password')?.hasError(validation.type) && 
+          registerForm.get('password')?.dirty) 
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          {{validation.message}}
+        </div>
       </ng-container>
     </div>
     <ion-item>
       <ion-input id="confirmaPassword"
-      label="Confirmar Contraseña" 
-      formControlName="confirmaPassword" 
-      type="password" 
-      placeholder="Contraseña" 
-      labelPlacement="floating"
-      [counter]="true"
-      maxlength="10"
-      >
-    </ion-input>
+       label="Confirmar Contraseña" 
+        formControlName="confirmaPassword" 
+        type="password" 
+        placeholder="Contraseña" 
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="10"
+        >
+      </ion-input>
     </ion-item>
       <div class="validaciones">
-      <ng-container *ngFor="let validation of validation_messages.confirmaPassword">
-        <div *ngIf="
-        (registerForm.get('confirmaPassword')?.hasError(validation.type) && 
-        registerForm.get('confirmaPassword')?.dirty) 
-        ">
-        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
-        {{validation.message}}</div>
-      </ng-container>
-    </div>
-   <div class="validaciones">
-      <div *ngIf="registerForm.get('password')?.value != '' && (registerForm.get('password')?.value != registerForm.get('confirmaPassword')?.value)">
-        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
-        Las contraseñas no coinciden.
+        <ng-container *ngFor="let validation of validation_messages.confirmaPassword">
+         <div *ngIf="
+            (registerForm.get('confirmaPassword')?.hasError(validation.type) && 
+            registerForm.get('confirmaPassword')?.dirty) 
+         ">
+            <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+            {{validation.message}}</div>
+        </ng-container>
       </div>
-    </div>
+      <div class="validaciones">
+         <div *ngIf="registerForm.get('password')?.value != '' && (registerForm.get('password')?.value != registerForm.get('confirmaPassword')?.value)">
+            <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+             Las contraseñas no coinciden.
+         </div>
+      </div>
 
     <div>
       <div class="button-crear">
-        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" id="open-toast" (click)="setOpen(true)">Crear</ion-button>
-      </div>
-      <ion-alert
-         [isOpen]="isAlertOpen"
-         header="Bienvenido"
-         subHeader="
-         Tu registro se ha completado satisfactoriamente."
-         message="Por favor, inicie sesión."
-         [buttons]="alertButtons"
-         (didDismiss)="setOpen(false)"
-></ion-alert>
+        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" (click)="setOpen(true)">Crear</ion-button>
+      </div>   
     </div>
   </form>
+    <div>
+      <ion-alert
+         [isOpen]="isAlertOpen"
+         header="{{registerValid ? headerSuccess : headerError}}"
+         subHeader="{{registerValid ? subHeaderSuccess : subHeaderError}}"
+         message="{{registerValid ? messageSuccess : messageError}}"
+         [buttons]="alertButtons"
+         (didDismiss)="setOpen(false)"
+      >
+      </ion-alert>
+    </div>  
 </ion-content>

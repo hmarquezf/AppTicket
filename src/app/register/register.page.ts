@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-//import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { AlertController, NavController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -39,16 +39,23 @@ export class RegisterPage implements OnInit {
     ],
     last_name: [
       {type: "required", message: "Apellido es obligatorio"},
+      {type: "pattern", message: "El apellido ingresado es inválido"}
     ]
   }
 
   registerForm: FormGroup;
-  registerMessage: any;
-  registerValidaPassword: any;
+  registerValid: any;
+  headerSuccess="Registro Exitoso";
+  subHeaderSuccess="Su usuario ha sido creado con éxito."
+  messageSuccess="Por favor, inicie sesión para continuar."
+  headerError="Error";
+  subHeaderError="Verifique los datos ingresados."
+  messageError="Valide sus datos e intente nuevamente."
 
   constructor(
     private navCtrl: NavController,
     private storage: Storage,
+    private authService: AuthService,
     private alertController: AlertController,
     private formBuilder: FormBuilder
   ) { 
@@ -81,8 +88,6 @@ export class RegisterPage implements OnInit {
           
         ])
       ),
-      Validators
-      ,
       name: new FormControl(
         "",
         Validators.compose([
@@ -105,14 +110,30 @@ export class RegisterPage implements OnInit {
 
   register(register_data: any){
     console.log(register_data);
-      this.storage.set('userCreatedIn', this.registerForm.value);
+    if(register_data.password == register_data.confirmaPassword){
 
-      this.navCtrl.navigateForward('/login');
+      this.authService.registerUser(register_data).then(res =>{
+
+          this.storage.set('userCreatedIn', true);
+          this.storage.set('user', register_data);
+
+          this.registerValid= true;
+          this.navCtrl.navigateForward('/login');  
+
+        }).catch(error => {
+          console.log(error);
+        });
+      
+    }else{
+      this.registerValid = false;
+      console.log("Las contraseñas no coinciden");
+    }
   }
+
 
   goToLogin(){
     console.log("go to login");
-    this.navCtrl.navigateForward('/login');
+    this.navCtrl.navigateBack('/login');
     this.storage.set('mostreLogin', true);
   }
 

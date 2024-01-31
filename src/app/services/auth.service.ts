@@ -23,7 +23,7 @@ export class AuthService {
   registerUser(credential: any){
     return new Promise((accept, reject) =>{
       if(
-        credential.email == ''){
+        credential.email != '' && credential.password != '' && credential.confirmaPassword != '' && credential.name != '' && credential.last_name != ''){
         accept('Registro Correcto');
         }else{
         reject('Usuario y/o Contraseña inválido');
