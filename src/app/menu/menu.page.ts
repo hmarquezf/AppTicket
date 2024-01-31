@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
+  logged: any;
 
   constructor(
     private menu: MenuController,
@@ -25,4 +26,16 @@ export class MenuPage implements OnInit {
     this.storage.set('userLoggedIn', false);
     this.navCtrl.navigateRoot('/login');
   }
+
+  goToIntro(){
+    this.navCtrl.navigateRoot('/intro');
+  }
+
+  validaLogin(){
+    this.storage.get('userLoggedIn').then((val) => {
+      this.logged = val;
+
+    });
+  }
+
 }

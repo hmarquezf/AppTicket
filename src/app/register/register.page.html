@@ -13,68 +13,68 @@
   <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
     <ion-item>
       <ion-input 
-      label="Nombre" 
-      formControlName="name" 
-      labelPlacement="floating" 
-      placeholder="Nombre"
+        label="Nombre" 
+        formControlName="name" 
+       labelPlacement="floating" 
+        placeholder="Nombre"
       ></ion-input>
     </ion-item>
     <div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.name">
         <div *ngIf="
-        (registerForm.get('name')?.hasError(validation.type) && 
-        registerForm.get('name')?.dirty)
-        ">
-        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          (registerForm.get('name')?.hasError(validation.type) && 
+          registerForm.get('name')?.dirty)
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
         {{validation.message}}</div>
       </ng-container>
     </div>
       <ion-item>
         <ion-input 
-        label="Apellido" 
-        formControlName="last_name" 
-        labelPlacement="floating" 
-        placeholder="Apellido"
+          label="Apellido" 
+          formControlName="last_name" 
+          labelPlacement="floating" 
+          placeholder="Apellido"
         ></ion-input>
       </ion-item>
       <div class="validaciones">
         <ng-container *ngFor="let validation of validation_messages.last_name">
           <div *ngIf="
-          (registerForm.get('last_name')?.hasError(validation.type) && 
-          registerForm.get('last_name')?.dirty)
-          ">
-          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+            (registerForm.get('last_name')?.hasError(validation.type) && 
+            registerForm.get('last_name')?.dirty)
+            ">
+            <ion-icon name="close-circle-outline" size="medium"></ion-icon>
           {{validation.message}}</div>
         </ng-container>
       </div>
     <ion-item>
       <ion-input 
-      label="Email" 
-      formControlName="email" 
-      type="email" 
-      labelPlacement="floating" 
-      placeholder="Email"
+        label="Email" 
+        formControlName="email" 
+        type="email" 
+        labelPlacement="floating" 
+        placeholder="Email"
       ></ion-input>
     </ion-item>
     <div class="validaciones">
       <ng-container *ngFor="let validation of validation_messages.email">
         <div *ngIf="
-        (registerForm.get('email')?.hasError(validation.type) && 
-        registerForm.get('email')?.dirty)
-        ">
-        <ion-icon name="close-circle-outline" size="medium"></ion-icon>
-        {{validation.message}}</div>
+          (registerForm.get('email')?.hasError(validation.type) && 
+          registerForm.get('email')?.dirty)
+          ">
+          <ion-icon name="close-circle-outline" size="medium"></ion-icon>
+          {{validation.message}}</div>
       </ng-container>
     </div>
     <ion-item>
       <ion-input id="password"
-      label="Contraseña" 
-      formControlName="password" 
-      type="password" 
-      placeholder="Contraseña" 
-      labelPlacement="floating"
-      [counter]="true"
-      maxlength="10"
+        label="Contraseña" 
+        formControlName="password" 
+        type="password" 
+        placeholder="Contraseña" 
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="10"
       >
     </ion-input>
     </ion-item>
@@ -117,22 +117,10 @@
              Las contraseñas no coinciden.
          </div>
       </div>
-
     <div>
       <div class="button-crear">
-        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" (click)="setOpen(true)">Crear</ion-button>
+        <ion-button id="btnCrea" type="submit" [disabled]="!registerForm.valid" shape="round" color="success" expand="full" >Crear</ion-button>
       </div>   
     </div>
   </form>
-    <div>
-      <ion-alert
-         [isOpen]="isAlertOpen"
-         header="{{registerValid ? headerSuccess : headerError}}"
-         subHeader="{{registerValid ? subHeaderSuccess : subHeaderError}}"
-         message="{{registerValid ? messageSuccess : messageError}}"
-         [buttons]="alertButtons"
-         (didDismiss)="setOpen(false)"
-      >
-      </ion-alert>
-    </div>  
 </ion-content>

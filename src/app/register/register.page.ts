@@ -11,9 +11,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterPage implements OnInit {
   
-  isAlertOpen = false;
-  alertButtons = ['Aceptar'];
-
   validation_messages = {
     email: [
       {type: "required", message: "Email es obligatorio"},
@@ -44,13 +41,7 @@ export class RegisterPage implements OnInit {
   }
 
   registerForm: FormGroup;
-  registerValid: any;
-  headerSuccess="Registro Exitoso";
-  subHeaderSuccess="Su usuario ha sido creado con éxito."
-  messageSuccess="Por favor, inicie sesión para continuar."
-  headerError="Error";
-  subHeaderError="Verifique los datos ingresados."
-  messageError="Valide sus datos e intente nuevamente."
+  registerValid: boolean= false;
 
   constructor(
     private navCtrl: NavController,
@@ -112,13 +103,14 @@ export class RegisterPage implements OnInit {
     console.log(register_data);
     if(register_data.password == register_data.confirmaPassword){
 
-      this.authService.registerUser(register_data).then(res =>{
+        this.authService.registerUser(register_data).then(res =>{
 
-          this.storage.set('userCreatedIn', true);
-          this.storage.set('user', register_data);
+        this.storage.set('userCreatedIn', true);
+        this.storage.set('user', register_data);
 
-          this.registerValid= true;
-          this.navCtrl.navigateForward('/login');  
+        this.registerValid= true;
+        this.showAlert();
+        this.navCtrl.navigateForward('/login');  
 
         }).catch(error => {
           console.log(error);
@@ -126,6 +118,7 @@ export class RegisterPage implements OnInit {
       
     }else{
       this.registerValid = false;
+      this.showAlertError();
       console.log("Las contraseñas no coinciden");
     }
   }
@@ -137,8 +130,31 @@ export class RegisterPage implements OnInit {
     this.storage.set('mostreLogin', true);
   }
 
-  setOpen(isOpen: boolean) {
-    this.isAlertOpen = isOpen;
-  }
+  async showAlert() {  
+  
+    console.log(this.registerValid);
+    const alert = await this.alertController.create({  
+      header: 'Registro Exitoso',  
+      subHeader: 'Su usuario ha sido creado con éxito.',  
+      message: 'Por favor, inicie sesión para continuar.',  
+      buttons: ['Aceptar']  
+      });  
+    await alert.present();  
+    const result = await alert.onDidDismiss();  
+    console.log(result);  
+  } 
+
+  async showAlertError() {
+    console.log(this.registerValid);
+    const alert = await this.alertController.create({  
+      header: 'Error',  
+      subHeader: 'Verifique los datos ingresados.',  
+      message: 'Valide sus datos e intente nuevamente.',  
+      buttons: ['OK']  
+    });  
+    await alert.present();  
+    const result = await alert.onDidDismiss();  
+    console.log(result);
+  } 
 
 }

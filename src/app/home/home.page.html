@@ -1,27 +1,25 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
     </ion-buttons>
+    <!--<ion-searchbar search-icon="search-circle" placeholder="Custom Search Icon"></ion-searchbar>-->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button color='primary' (click)="goToIntro()">Ver Intro</ion-button>
-  <div class="home-user">
-    <ion-img src="../../assets/imagenes/usuario.png" (click)="goToLogin()"></ion-img>
-  </div>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
+      <ion-tab-button>
         <ion-icon name="home-outline" (click)="goToIntro()"></ion-icon>
         Inicio
       </ion-tab-button>
-      <ion-tab-button tab="radio">
+      <ion-tab-button>
         <ion-icon name="radio-outline" (click)="goToIntro()"></ion-icon>
         Eventos
       </ion-tab-button>
-      <ion-tab-button tab="search">
+      <ion-tab-button >
         <ion-icon name="search" (click)="goToIntro()"></ion-icon>  
         Buscar
       </ion-tab-button>

@@ -33,7 +33,7 @@ export class IntroPage  {
     {
       title: "Únete a la Comunidad",
       description: "Conviértete en parte de una comunidad apasionada por los eventos. Comparte experiencias, conoce a otros amantes de la música y el entretenimiento.<br><strong>Únete a la revolución de la compra de boletos.</strong>",
-      image: "../../assets/imagenes/slider5.svg"
+      image: "../../assets/imagenes/slider5.svg",
     }
   ]
 

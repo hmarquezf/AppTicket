@@ -26,14 +26,16 @@ swiper-container{
  
  .contenedor{
 
-  width: 95%;
+  width: auto;
   text-align: center;
   
 }
 
 .contenedor-interior{
   padding-top: 10%;
-  display: inline-flex; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
  .contenedor h1{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -53,12 +55,16 @@ swiper-container{
  }
 
  .imagen{
-  width: 58%;
-  padding-left: 10%;
+  padding-left: 8%;
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
  }
 
  .imagen img{
-  align-items: right;
+  max-width: 90%;
  }
 
 

@@ -31,10 +31,11 @@ export class LoginPage implements OnInit {
     ]
 
   }
-  recuperaPass: any;
+  //recuperaPass: any;
   recuperaMenssage= 'Se enviará un email para restablecer su contraseña';
   loginMessage: any;
   loginPermiso: any;
+  validaUser: any;
   
   constructor(
     private modalCtrl: ModalController,
@@ -66,9 +67,11 @@ export class LoginPage implements OnInit {
   }
 
   goToHome(){
+
     console.log("go to Home");
     this.router.navigateByUrl('/menu/home');
     this.storage.set('mostreElhome', true);
+ 
   }
 
   goToRegister(){
@@ -83,14 +86,20 @@ export class LoginPage implements OnInit {
   login(login_data: any){
     console.log(login_data);
     this.authService.loginUser(login_data).then(res =>{
+
       console.log(res);
       this.loginPermiso = true;
       this.storage.set('userLoggedIn', true);
       this.router.navigateByUrl('/menu/home');
+
     }).catch(error => {
       this.loginMessage = error;
       this.loginPermiso = false;
     });
+  }
+
+  recuperaPass(){
+    //let modal = this.modalCtrl.create(    );
   }
 
 }
