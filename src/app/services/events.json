@@ -1,0 +1,60 @@
+{
+    "events":[
+        {
+            "id": 2,
+            "name": "JUNIOR VS MEDELLIN 2024-1 ",
+            "event_date": "2024-02-01T00:00:00.000Z",
+            "description": "Encuentro futbolístico vibrante entre el Junior de Barranquilla, El Tiburón, y el Independiente Medellín, El Poderoso de la Montaña. Dos titanes del fútbol colombiano se enfrentan en un emocionante duelo lleno de pasión y rivalidad.",
+            "location": null,
+            "address": "Av. Circunvalar con Cll Murillo",
+            "minimun_age": 0,
+            "image": "https://tuboleta.com/imagenes/65b9553b14d87.webp",
+            "created_at": "2024-01-30T23:37:04.305Z",
+            "updated_at": "2024-01-30T23:37:04.305Z",
+            "category_id": 1,
+            "city": " Barranquilla"
+        },
+        {
+            "id": 3,
+            "name": "COPA DAVIS GRUPO MUNDIAL I : COLOMBIA VS LUXEMBURGO",
+            "event_date": "2024-02-02T00:00:00.000Z",
+            "description": "Nuestro país buscará una victoria que lo acerque al objetivo de estar una vez más al Grupo Mundial de la Copa Davis. Los aficionados vivirán un fin de semana para apoyar de cerca a las mejores raquetas del tenis colombiano, nuestros jugadores dejarán todo en el campo de juego en una oportunidad única para ver a la selección Colombia de tenis compitiendo en casa.",
+            "location": "Club Bellavista Colsubsidio",
+            "address": "Autopista Norte # 245 - 91",
+            "minimun_age": 2,
+            "image": "https://tuboleta.com/imagenes/659eaf6d82674.webp",
+            "created_at": "2024-01-30T23:38:52.064Z",
+            "updated_at": "2024-01-30T23:38:52.064Z",
+            "category_id": 1,
+            "city": "Bogota"
+        },
+        {
+            "id": 4,
+            "name": "CLUB DEPORTIVO LA EQUIDAD VS IND SANTA FE 2024-1",
+            "event_date": "2024-01-30T00:00:00.000Z",
+            "description": "Encuentro futbolístico vibrante entre la equidad y el Independiente Santa Fe. Dos titanes del fútbol colombiano se enfrentan en un emocionante duelo lleno de pasión y rivalidad.",
+            "location": "Estadio Metropolitano de Techo",
+            "address": "Cra. 71d",
+            "minimun_age": 0,
+            "image": "https://tuboleta.com/imagenes/65b3ba284b74d.webp",
+            "created_at": "2024-01-31T00:18:11.902Z",
+            "updated_at": "2024-01-31T00:18:11.902Z",
+            "category_id": 1,
+            "city": " Bogotá"
+        },
+        {
+            "id": 5,
+            "name": "DEPORTES TOLIMA VS AMÉRICA | 2024-1",
+            "event_date": "2024-01-31T00:00:00.000Z",
+            "description": "Encuentro futbolístico vibrante entre deportes tolima y el America de Cali. Dos titanes del fútbol colombiano se enfrentan en un emocionante duelo lleno de pasión y rivalidad.",
+            "location": "Estadio Manuel Murillo Toro",
+            "address": "Cl. 37, Ibagué, Tolima",
+            "minimun_age": 0,
+            "image": "https://tuboleta.com/imagenes/65b7be185c080.webp",
+            "created_at": "2024-01-31T00:19:36.874Z",
+            "updated_at": "2024-01-31T00:19:36.874Z",
+            "category_id": 1,
+            "city": "Ibagué"
+        }
+    ]
+}
