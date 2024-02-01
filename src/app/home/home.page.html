@@ -8,20 +8,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
-  <swiper-container
-  [loop]="true"
-  [pagination]="true"
-  [slidesPerView]="2"
-  >
-    <swiper-slide *ngFor="let slide of event_list">
-      <h4>{{slide.name}}</h4>
-      <img src="{{slide.image}}" alt="imagen">
-    </swiper-slide>
+<ion-content >
+  <div class="contenedor">
+    <swiper-container
+      [loop]="true"
+      [pagination]="true"
+      [slidesPerView]="1"
+    >
+      <swiper-slide *ngFor="let slide of event_list">
+      <div class="imagen">
+        <img src="{{slide.image}}" alt="imagen">
+      </div>
+      <div class="text">
+        <h4>{{slide.name}}</h4>
+      </div>
+      </swiper-slide>
   </swiper-container>
+  </div>
 </ion-content>
-
+<!--
 <ion-content>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
@@ -40,4 +45,4 @@
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>
-  
+-->

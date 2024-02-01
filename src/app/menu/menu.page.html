@@ -59,7 +59,16 @@
         </ion-menu-toggle>
 
       </ion-list>
-
+      <ion-list lines="none">
+        <ion-list-header>
+          Apariencia
+        </ion-list-header>
+        <ion-item>
+          <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
+            >Modo Oscuro</ion-toggle
+          >
+        </ion-item>
+      </ion-list>
       <ion-list lines="none">
         <ion-list-header>
           Tutorial

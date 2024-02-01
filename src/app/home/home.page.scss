@@ -1,33 +1,27 @@
-#container {
-  text-align: center;
 
+.texto{
   position: absolute;
+  bottom: 0;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  
+  width: 100%;
+  padding: 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar la legibilidad del texto */
+  box-sizing: border-box;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.imagen{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imagen img{
+  max-width: 80%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.contenedor{
+  position: relative;
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
 }
-
-#container a {
-  text-decoration: none;
-}
-
-.home-user{
-  width: 55px;
-}
-

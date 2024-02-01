@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 })
 export class MenuPage implements OnInit {
   logged: any;
+  themeToggle = false;
 
   constructor(
     private menu: MenuController,
@@ -16,8 +17,23 @@ export class MenuPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.initializeDarkTheme(prefersDark.matches);
+    prefersDark.addEventListener('change', (mediaQuery) => this.initializeDarkTheme(mediaQuery.matches));
   }
 
+  initializeDarkTheme(isDark: any) {
+    this.themeToggle = isDark;
+    this.toggleDarkTheme(isDark);
+  }
+
+  toggleChange(ev: any) {
+    this.toggleDarkTheme(ev.detail.checked);
+  }
+
+  toggleDarkTheme(shouldAdd: any) {
+    document.body.classList.toggle('dark', shouldAdd);
+  }
   closeMenu() {
    this.menu.close();
   }
