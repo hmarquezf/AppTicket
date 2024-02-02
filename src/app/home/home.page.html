@@ -9,25 +9,26 @@
 </ion-header>
 
 <ion-content >
-  <div class="contenedor">
+ <div class="contenedor">
     <swiper-container
-      [loop]="true"
-      [pagination]="true"
-      [slidesPerView]="1"
+    [loop]="true"
+    effect="coverflow"
+    [slidesPerView]="1"
+    [autoplay]="{delay: 2500}"
+    
     >
       <swiper-slide *ngFor="let slide of event_list">
-      <div class="imagen">
-        <img src="{{slide.image}}" alt="imagen">
-      </div>
-      <div class="text">
-        <h4>{{slide.name}}</h4>
-      </div>
+        <div class="imagen">
+          <img alt="" src="{{slide.image}}"/>
+        </div>
+        <div class="texto">  
+          <h3><strong>{{slide.name}}</strong></h3>
+          <ion-button (click)="presentModal(slide)">Más Información</ion-button>
+        </div>
       </swiper-slide>
-  </swiper-container>
+    </swiper-container>
   </div>
-</ion-content>
-<!--
-<ion-content>
+
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button>
@@ -45,4 +46,3 @@
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>
--->

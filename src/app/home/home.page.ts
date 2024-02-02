@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { EventsService } from '../services/events.service';
+import { AlertController} from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +14,12 @@ import { EventsService } from '../services/events.service';
 export class HomePage {
 
   event_list: any;
-
+  prueba: any;
   constructor(
     private router: Router,
     private storage: Storage,
+    private alertController: AlertController,
+    private modalController: ModalController,
     private events: EventsService
     ) {}
 
@@ -43,5 +48,11 @@ export class HomePage {
     this.router.navigateByUrl('/login');
     this.storage.set('mostreLogin', true);
   }
-
+    
+  async presentModal(slide: any) {
+    this.storage.set('idSlide', slide);
+    this.modalController.create({component: ModalPage}).then((modalElement) => {
+      modalElement.present();
+    });
+  }
 }

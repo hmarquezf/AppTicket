@@ -1,0 +1,17 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="closeModal()">Regresar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenedor">
+    <h1 class="titulo">{{nameSlide}}</h1> 
+    <p class="descripcion">{{descriptionSlide}}</p>
+    <p class="informacion"><strong><label for="">Dirección: </label></strong>{{addresSlide}}</p>
+    <p class="informacion"><strong><label for="">Ciudad: </label></strong>{{citySlide}}</p>
+    <p class="informacion"><strong><label for="">Fecha Evento: </label></strong>{{dateSlide}}</p>
+  </div>
+</ion-content>
